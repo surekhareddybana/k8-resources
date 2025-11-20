@@ -7,7 +7,7 @@ metadata:
      component: mysql
      tier: backend
      environment: dev
-   anotations: 
+   annotations: 
         description: "this pod is created to demonstarate pod annotation"
         jenkins: "https://jenkins.com/build/job/roboshop/catalogue"
 
