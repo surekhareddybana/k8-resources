@@ -1,4 +1,4 @@
-apiversion: v1
+apiVersion: v1
 kind: pod
 metadata:
   name: nginx
@@ -8,5 +8,5 @@ metadata:
     containers:
     - name: nginx
       image: nginx
-  project: roboshop
-  environment: dev
+      project: roboshop
+      environment: dev
