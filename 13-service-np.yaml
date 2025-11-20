@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-np
+  labels:
+    purpose: Service-np-demo
+
+spec:
+  type: nodeport
+  selector:
+   purpose: Service-np-demo
+   project: roboshop
+   environment: dev
+  ports: 
+    - protocol: TCP
+      port: 80 #service port
+      targetport: 80 # container port
+      
+         
+apiversion: v1
+kind: pod
+metadata: 
+   name: nginx-np
+   labels:
+   purpose: Service-np-demo
+   project: roboshop
+   environment: dev
+     
+spec:
+  containers:
+  - name: nginx
+    image: nginx
