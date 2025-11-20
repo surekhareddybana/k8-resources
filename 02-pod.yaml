@@ -4,9 +4,10 @@ metadata:
   name: nginx
   labels:
     purpose: demo
+    project: roboshop
+    environment: dev
   spec:
     containers:
     - name: nginx
       image: nginx
-      project: roboshop
-      environment: dev
+      
