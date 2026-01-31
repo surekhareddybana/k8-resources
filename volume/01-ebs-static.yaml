@@ -1,0 +1,70 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: ebs-static
+spec:
+  accessModes:
+  - ReadWriteOnce
+  capacity:
+    storage: 20Gi
+  csi:
+    driver: ebs.csi.aws.com
+    fsType: ext4
+    volumeHandle: vol-03c604538dd7d2f41 # volume id this is in ec2instance near
+---
+# this is pvc
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: ebs-static
+spec:
+  storageClassName: "" # Empty string must be explicitly set otherwise default StorageClass will be set
+  volumeName: ebs-static #claim is what see above pv 
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 15Gi
+---
+# pv attach to pod
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+  labels: 
+     purpose: ebs-static-demo
+     project: roboshop
+spec:
+  nodeSelector:
+     topology.kubernetes.io/zone: us-east-1c 
+  containers:
+  - name: nginx
+    image: nginx
+    volumeMounts: # this is in docker docker run -v host-path:container-path
+    - name: persistent-storage
+      mountPath: /usr/share/nginx/html
+  volumes:
+  - name: persistent-storage
+    persistentVolumeClaim:
+      claimName: ebs-
+---
+# if u want to see this nginx app to outside either nodeport or load balancer
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: ebs-static
+  labels:
+    purpose: ebs-static-demo
+    project: roboshop
+
+spec:
+  type: nodeport
+  selector:
+   purpose: ebs-static-demo
+   project: roboshop
+  ports: 
+    - protocol: TCP
+      port: 80 #service port
+      targetport: 80 # container port
+ 
