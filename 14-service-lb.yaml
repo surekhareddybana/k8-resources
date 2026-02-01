@@ -14,17 +14,17 @@ spec:
   ports: 
     - protocol: TCP
       port: 80 #service port
-      targetport: 80 # container port
-      
+      targetPort: 80 # container port
+---     
          
-apiversion: v1
-kind: pod
+apiVersion: v1
+kind: Pod
 metadata: 
    name: nginx-lb
    labels:
-   purpose: Service-lb-demo
-   project: roboshop
-   environment: dev
+    purpose: Service-lb-demo
+    project: roboshop
+    environment: dev
      
 spec:
   containers:
