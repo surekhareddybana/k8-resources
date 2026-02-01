@@ -15,7 +15,7 @@ spec:
       port: 80 #service port
       targetport: 80 # container port
       
-         
+---         
 apiVersion: v1
 kind: pod
 metadata: 
@@ -24,8 +24,6 @@ metadata:
     purpose: Service_demo
     project: roboshop
     environment: dev
-     
-
 spec:
   containers:
   - name: nginx
