@@ -22,9 +22,9 @@ kind: Pod
 metadata: 
    name: nginx-np
    labels:
-   purpose: Service-np-demo
-   project: roboshop
-   environment: dev
+     purpose: Service-np-demo
+     project: roboshop
+     environment: dev
      
 spec:
   containers:
