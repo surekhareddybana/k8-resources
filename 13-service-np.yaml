@@ -6,17 +6,17 @@ metadata:
     purpose: Service-np-demo
 
 spec:
-  type: nodeport
+  type: NodePort
   selector:
-   purpose: Service-np-demo
-   project: roboshop
-   environment: dev
+    purpose: Service-np-demo
+    project: roboshop
+    environment: dev
   ports: 
     - protocol: TCP
       port: 80 #service port
-      targetport: 80 # container port
+      targetPort: 80 # container port
       
-         
+---        
 apiversion: v1
 kind: pod
 metadata: 
