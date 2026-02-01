@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Pod
 metadata: 
   name: multicontainer
-labels: 
+  labels: 
    project: roboshop
    purpose: multicontainer-demo
 spec:
