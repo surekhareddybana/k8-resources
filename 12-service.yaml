@@ -21,9 +21,9 @@ kind: pod
 metadata: 
    name: nginx
    labels:
-   purpose: Service_demo
-   project: roboshop
-   environment: dev
+    purpose: Service_demo
+    project: roboshop
+    environment: dev
      
 
 spec:
