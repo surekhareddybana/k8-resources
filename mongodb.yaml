@@ -1,0 +1,22 @@
+apiVesrion: v1
+kind: Deployment
+metadata:
+  name: roboshop-deployment
+  namespace: roboshop
+  labels: 
+    project: roboshop
+    tier: database
+    purpose: database-mongo
+spec:
+ replicas: 1
+selector:
+    matchLables:
+      project: roboshop
+      tier: database
+      purpose: database-mongo
+    template:
+       metadata:
+          labels:
+             project: roboshop
+             tier: database
+             purpose: database-mongo
