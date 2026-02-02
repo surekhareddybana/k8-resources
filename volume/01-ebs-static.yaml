@@ -10,7 +10,7 @@ spec:
   csi:
     driver: ebs.csi.aws.com
     fsType: ext4
-    volumeHandle: vol-03c604538dd7d2f41 # volume id this is in ec2instance near
+    volumeHandle: vol-0057c957ae98ee779 # volume id this is in ec2instance near
 ---
 # this is pvc
 apiVersion: v1
@@ -61,10 +61,10 @@ metadata:
 spec:
   type: nodeport
   selector:
-   purpose: ebs-static-demo
-   project: roboshop
+    purpose: ebs-static-demo
+    project: roboshop
   ports: 
     - protocol: TCP
       port: 80 #service port
-      targetport: 80 # container port
+      targetPort: 80 # container port
  
