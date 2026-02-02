@@ -46,7 +46,7 @@ spec:
   volumes:
   - name: persistent-storage
     persistentVolumeClaim:
-      claimName: ebs-
+      claimName: ebs-static
 ---
 # if u want to see this nginx app to outside either nodeport or load balancer
 
@@ -59,7 +59,7 @@ metadata:
     project: roboshop
 
 spec:
-  type: nodeport
+  type: NodePort
   selector:
     purpose: ebs-static-demo
     project: roboshop
