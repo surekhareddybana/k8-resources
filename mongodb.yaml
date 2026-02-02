@@ -1,4 +1,4 @@
-apiVesrion: v1
+apiVesrion: apps/v1
 kind: Deployment
 metadata:
   name: roboshop-deployment
