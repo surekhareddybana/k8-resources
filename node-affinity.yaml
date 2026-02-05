@@ -13,9 +13,9 @@ spec:
           #  values:
             #- gpu
            # - gpuuu
-      preferredDuringSchedulingIgnoredDuringExecution:
-      - weight: 1
-        preference:
+       preferredDuringSchedulingIgnoredDuringExecution:
+       - weight: 1
+         preference:
           matchExpressions:
           - key: another-node-label-key
             operator: In
