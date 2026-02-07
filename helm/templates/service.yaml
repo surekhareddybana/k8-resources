@@ -8,10 +8,10 @@ metadata:
 spec:
   type: LoadBalancer
   selector:
-   purpose: Service-lb-demo
-   project: roboshop
-   environment: dev
+    purpose: deployment-demo
+    project: roboshop
+    app: nginx
   ports: 
     - protocol: TCP
       port: 80 #service port
-      targetPort: 80 # container port
+      targetPort: {{ .values.service.targetPort }}
