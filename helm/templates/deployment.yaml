@@ -10,7 +10,7 @@ metadata:
     
 spec:
   # modify replicas according to your case
-  replicas: {{ .values.deployment.replicas }}
+  replicas: {{ .Values.deployment.replicas }}
   selector:
     matchLabels:
       purpose: deployment-demo
@@ -26,4 +26,4 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: nginx
+        image: {{ .Values.deployment.imageVersion }}
